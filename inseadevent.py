@@ -20,7 +20,7 @@ AJAX_URL = "https://www.insead.edu/views/ajax"
 # Example: AIRTABLE_BASE_ID = os.environ.get("AIRTABLE_BASE_ID")
 AIRTABLE_BASE_ID = "appoz4aD0Hjolycwd"
 AIRTABLE_TABLE_ID = "tblSvkrwpJlB4A195"
-AIRTABLE_API_KEY = "patQklX1y11lFtFFY.74b2fc99a09edbf052f3ff8fcf378c3c3b09397f0683dd171b968ad747a4035b" # Consider using os.environ.get("AIRTABLE_API_KEY")
+AIRTABLE_API_KEY = os.environ.get("AIRTABLE_API_KEY")
 AIRTABLE_API_URL = f"https://api.airtable.com/v0/{AIRTABLE_BASE_ID}/{AIRTABLE_TABLE_ID}"
 AIRTABLE_FIELDS = {
     'event': 'fldtf8ZLoMws7T2Kb',  # Text
