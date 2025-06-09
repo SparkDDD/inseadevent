@@ -1,0 +1,31 @@
+name: Daily INSEAD Scraper
+
+on:
+  schedule:
+    - cron: '0 3 * * *'  # Runs daily at 03:00 UTC
+  workflow_dispatch:      # Manual trigger
+
+jobs:
+  scrape-and-upload:
+    runs-on: ubuntu-latest
+
+    env:
+      AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4 pytz
+
+      - name: 🚀 Run scraper
+        run: |
+          python inseadevent.py  # replace with actual filename
